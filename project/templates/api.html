@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title>OKC Python - API</title>
+{% endblock %}
+
+
+{% block content %}
+    <h2 class="text_center">API TEST SECTION</h2>
+    <br>
+    <br>
+    <table class="api_table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Users</td>
+                <td>www.brickbeard.okcpy<strong>{{ url_for('all_users') }}</strong></td>
+                <td><a id="users_" href="#" >Send Request</a></td>
+            </tr>
+            <tr>
+                <td>User</td>
+                <td>www.brickbeard.okcpy<strong>{{ url_for('get_user', id=data.users[0].id) }}</strong></td>
+                <td><a id="user_" href="#">Send Request</a></td>
+            </tr>
+            <tr>
+                <td>Companies</td>
+                <td>www.brickbeard.okcpy<strong>{{ url_for('get_companies') }}</strong></td>
+                <td><a id="companies_" href="#">Send Request</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="api_modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <pre id="display">
+                [
+                    { 
+                        "Data": "data",
+                        "Stuff": "more_data"
+                    },
+                    {
+                        "Data": "data2",
+                        "Stuff": "what_stuff"
+                    }
+                ]
+            </pre>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/api.js') }}" type="text/javascript"></script>
+{% endblock %}

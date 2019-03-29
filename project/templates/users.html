@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title>OKC Python - Users</title>
+{% endblock %}
+
+
+{% block content %}
+    <br>
+    <div class="content_center">
+        <br>
+        <table class="user_table">
+            <h2 class="text_center">Users</h2>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>COMPANY</th>
+                    <th>CITY</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if data.users %}
+                {% for user in data.users %}
+                <tr>
+                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.id }}</a></td>
+                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.name.title() }}</a></td>
+                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.company }}</a></td>
+                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.city }}</a></td>
+                    <td class=" del_icon">
+                        <a href="{{ url_for('delete_user', id=user.id) }}"><img src="https://img.icons8.com/office/30/000000/cancel.png"></a>
+                    </td>
+                </tr>  
+                {% endfor %} 
+            {% endif %}
+                <tr id="form_view">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text_center"><a href="{{ url_for('add_user', _anchor='form_view') }}">New User &#43;</a></td>
+                </tr>
+            </tbody>        
+        </table>
+        {% if '/users/' in request.path %}
+            {% if data.form %}
+            <br><br><br>
+            <div class="form_wrapper">
+                <h3 class="text_center">{% if request.path == '/users/update' %}Update User{% else %}Create New User{% endif %}</h3>
+                <hr width="65%", color="#3A709D">
+                <form action="{% if 'users/update' in request.path %}{{url_for('update_user', id=data.user.id) }}{% else %}/users/add{% endif %}" method="POST">
+                    {{ data.form.csrf_token }}
+                    <p>
+                        {{ data.form.name.label }}
+                        {% if data.user %}
+                            {{ data.form.name(placeholder="{}".format(data.user.name), autofocus=true) }}
+                        {% else %}
+                            {{ data.form.name(placeholder="", autofocus=true) }}
+                        {% endif %}
+                    </p>
+                    <p>
+                        {{ data.form.company.label }}
+                        {% if data.user %}
+                            {{ data.form.company(placeholder="{}".format(data.user.company)) }}
+                        {% else %}
+                            {{ data.form.company(placeholder="") }}
+                        {% endif %}
+                    </p>
+                    <p>
+                        {{ data.form.city.label }}
+                        {% if data.user %}
+                            {{ data.form.city(placeholder="{}".format(data.user.city)) }}
+                        {% else %}
+                            {{ data.form.city(placeholder="") }}
+                        {% endif %}
+                    </p>
+                    <p class="form_buttons">
+                        <input type="submit" value="Submit">
+                        <a href="{{ url_for('users') }}">Cancel</a>
+                    </p>
+                </form>
+            </div> 
+            {% endif %}
+        {% endif %}
+        <br><br>
+        {% if data.users %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="text_center">
+            <a href="https://icons8.com/icon/21067/cancel" style="text-decoration: none; font-size: .3em;">Cancel icon by Icons8</a>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

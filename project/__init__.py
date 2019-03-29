@@ -1,15 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_pyfile('dev.cfg')
+CORS(app)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+db = SQLAlchemy(app)
 
-@app.route('/users')
-def users():
-    return render_template('index.html')
-
-@app.route('/api')
-def contact():
-    return render_template('index.html')
+from project import views

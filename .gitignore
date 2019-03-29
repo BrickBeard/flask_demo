@@ -7,5 +7,10 @@ venv/
 env/
 env_/
 
+# Configuration files
+# instance/                 Un-comment these in your environment
+# .env                      Un-comment these in your environment
+# migrations/               Un-comment these in your environment
+
 # IDE / Text Editors
 .vscode/

@@ -1,56 +1,74 @@
-body {
-    background-color: #FFFFFF;
-    font-family: 'Courier New', Courier, monospace;
-    color: #3A709D;
-}
-/* Header & Nav */
-.banner {
-    background-color: #f6f6f6;
-    height: auto;
-    padding-top: 10px;
-}
-.header-h1 {
-    color: #3A709D;
-}
-.header-span{
-    color: #FFD43A;
-    border-bottom: 5px solid #3A709D;
-    border-radius: 5px;
-    font-size: 1.5em;
-}
-ul.nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-.nav li {
-    display: inline-block;
-    padding: 0 10px 10px 10px;
-    width: 170px;
-}
-.nav li a {
-    display: block;
-    color:white;
-    background-color: #3A709D;
-    text-decoration: none;
-    text-align: center;
-    padding: 5px 12px;
-    border-radius: 5px;
-}
-.nav li a.active {
-    color: #3A709D;
-    background-color: #F0F0F0;
-    border: 2px solid #3A709D;
-}
-.nav li a:hover {
-    color: #3A709D;
-    background-color: #F0F0F0;
-    border: 2px solid #3A709D;
-}
-/* Body Content */
+body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace; color: #3A709D; }
 
+/* Header & Nav */
+.banner { background-color: #f6f6f6; height: auto; padding-top: 10px; }
+.header-h1 { color: #3A709D; }
+.header-span{ color: #FFD43A; border-bottom: 5px solid #3A709D; border-radius: 5px; font-size: 1.5em; }
+.nav { list-style-type: none; margin: 0; padding: 0; }
+.nav li { display: inline-block; padding: 0 10px 10px 10px; width: 170px; }
+.nav li a { display: block; color:white; background-color: #3A709D; text-decoration: none; text-align: center; padding: 5px 12px; border-radius: 5px; }
+.nav li a.active { color: #3A709D; background-color: #F0F0F0; border: 2px solid #3A709D; }
+.nav li a:hover { color: #3A709D; background-color: #F0F0F0; border: 2px solid #3A709D; }
+/* Tables */
+.user_table { width: 60%; margin-left: auto; margin-right: auto; border-collapse: separate; border-spacing: 0; }
+.user_table th { padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #3A709D; color: #F0F0F0; }
+.user_table td, .user_table th { border: 1px solid #3A709D; padding: 8px; }
+.user_table td:first-child, .user_table th:first-child { width: 50px; }
+.user_table td:nth-child(2), .user_table th:nth-child(2) { width: 30%; }
+.user_table tbody tr td a { display: block; text-decoration: none; color: #3A709D; }
+.user_table tbody tr td.del_icon { border: none; width: 10px; }
+.user_table tbody tr td.del_icon a { display: block; }
+.user_table tr:nth-last-child(n+2):hover > td:nth-last-child(n+2) { background-color: #f9f9f9; font-weight: bold; }
+.user_table tr:hover > td:nth-child(2) { text-indent: 10px; }
+.user_table tr:last-child td:last-child:hover > a { box-shadow: 0px 0px 8px 0px #3A709D; }
+.user_table tr:last-child td:last-child a { display: block; text-decoration: none; background-color: #3A709D; color: #F0F0F0; border-radius: 5px; margin: 2px; }
+/* --- Table corners --- */
+.user_table tr:first-child th:first-child { border-top-left-radius: 10px; }
+.user_table tr:first-child th:last-child { border-top-right-radius: 10px; }
+.hard_coded tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+.hard_coded tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+.user_table tr:nth-last-child(2) td:first-child, .user_table tr:last-child td:last-child { border-bottom-left-radius: 10px; }
+.user_table tr:nth-last-child(2) td:nth-last-child(2) { border-bottom-right-radius: 10px; }
+.user_table tr:last-child td { border: none; }
+/* API Table */
+.api_table { width: 80%; margin-left: auto; margin-right: auto; border-spacing: 10px 20px; }
+.api_table tr td:nth-last-child(n+3) { text-indent: 10px; }
+.api_table tbody tr td:first-child { font-weight: bold; text-align: right; width: 140px; padding-right: 20px; }
+.api_table tbody tr td:nth-child(2) { border: 1px solid #3A709D; border-radius: 5px; text-align: center; padding: 10px 20px; }
+.api_table tbody tr td:last-child { text-align: center;  width: 230px; }
+.api_table tbody tr td:last-child a { text-decoration: none; background-color: #FFD43A; border: 1px solid #FFD43A; color: #3A709D; font-weight: bold; padding: 10px 20px; border-radius: 5px; text-indent: 20px; }
+.api_table tbody tr:hover > td:nth-last-child(n+2) { background-color: #f6f6f6; border-radius: 5px; }
+.api_table tbody tr td a:hover { background-color: #f9f9f9; border: 1px solid #3A709D; }
+/* Forms */
+.form_wrapper { width: 40%; margin-left: auto; margin-right: auto; border-radius: 10px; border: 5px dashed #3A709D; box-shadow: 10px 10px 20px rgba(58, 112, 157, 0.5); }
+.form_wrapper form { border-radius: 10px; padding-bottom: 5px; }
+.form_wrapper form p { padding: 0px 15px; }
+.form_wrapper form p label { font-weight: bold; }
+.form_wrapper form p input[type=text] { width: 100%; padding: 10px 0px; display: inline-block; border: 1px solid #3A709D; border-radius: 5px; text-indent: 20px; }
+.form_wrapper form p input[type=submit] { background-color: #3A709D; color: #F0F0F0; padding: 10px 20px; border: none; border-radius: 5px; }
+.form_buttons input { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 700; cursor: pointer; }
+.form_buttons a { text-decoration: none; font-size: 10px; font-weight: 600; padding: 8px 15px; border: 1px solid #3A709D; border-radius: 5px; color: #3A709D; }
+.form_buttons input:hover, .form_buttons a:hover { box-shadow: 0px 0px 8px 0px #3A709D; }
+/* API Modal */
+.modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(58, 112, 157, 0.4); }
+.modal-content { background-color: #F0F0F0; margin: 100px auto; padding: 20px; border: 1px solid #3A709D; border-radius: 10px; width: 60%; }
+.modal-content .close { color: #3A709D; float: right; font-size: 28px; font-weight: bold; }
+.modal-content .close:hover, .modal-content .close:focus { color: #3a3a3a; text-decoration: none; cursor: pointer; }
 /* Helper Classes */
 
-.text_center {
-    text-align: center;
+.text_center { text-align: center; }
+
+@media only screen and (max-width: 1100px) {
+    /* TABLES */
+    .user_table { width: 85%; }
+    /* FORMS */
+    .form_wrapper { width: 65% }
 }
+/* Media Query for Small Screens */
+@media only screen and (max-width: 600px) {
+    /* TABLES */
+    .user_table { width: 100%; }
+    /* FORMS */
+    .form_wrapper { width: 100%; }
+  }
+
