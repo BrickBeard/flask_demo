@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OKC Python - {% if request.path == '/' %}Home{% else %}{{ request.path[1:].title() }}{% endif %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <h1 class="header-h1 text_center">&lt; Hello <span class="header-span">OKC</span> Python &gt;</h1>
+        <br>
+        <ul class="nav text_center">
+            <li><a class="{% if request.path == '/' %}active{% endif %}" href="/">Home</a></li>
+            <li><a class="{% if request.path == '/users' %}active{% endif %}" href="/users">Users</a></li>
+            <li><a class="{% if request.path == '/api' %}active{% endif %}" href="/api">API</a></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+{% block content %}
+    {% if request.path == '/users' %}
+    <h2 class="text_center">USER MANAGEMENT SECTION</h2>
+    {% elif request.path == '/api' %}
+    <h2 class="text_center">API TEST SECTION</h2>
+    {% else %}
+        <h2 class="text_center">HOME</h2>
+        <p class="text_center">--- Thanks for joining us today to talk about <strong>Flask</strong>! ---</p>
+    {%  endif %}
+    <br>
+{% endblock %}
+</body>
+</html>
