@@ -14,7 +14,7 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .user_table th { padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #3A709D; color: #F0F0F0; }
 .user_table td, .user_table th { border: 1px solid #3A709D; padding: 8px; }
 .user_table td:first-child, .user_table th:first-child { width: 50px; }
-.user_table td:nth-child(2), .user_table th:nth-child(2) { width: 30%; }
+.user_table td:nth-child(2), .user_table th:nth-child(2) { min-width: 150px; }
 .user_table tbody tr td a { display: block; text-decoration: none; color: #3A709D; }
 .user_table tbody tr td.del_icon { border: none; width: 10px; }
 .user_table tbody tr td.del_icon a { display: block; }
