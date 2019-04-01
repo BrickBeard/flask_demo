@@ -9,6 +9,7 @@ class User(db.Model):
     name = db.Column(db.String(), nullable=False)
     company = db.Column(db.String())
     city = db.Column(db.String())
+    admin = db.Column(db.Boolean)
 
     def __init__(self, name, company, city):
         self.name = name
@@ -17,7 +18,7 @@ class User(db.Model):
 
     @property
     def serialize(self):
-        return {'id': self.id, 'name': self.name, 'company': self.company, 'city': self.city}
+        return {'id': self.id, 'name': self.name, 'company': self.company, 'city': self.city, 'admin': self.admin}
         
     def __repr__(self):
         return f'<User {self.name}>'
