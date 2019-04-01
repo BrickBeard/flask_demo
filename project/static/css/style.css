@@ -20,8 +20,8 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .user_table tbody tr td.del_icon a { display: block; }
 .user_table tr:nth-last-child(n+2):hover > td:nth-last-child(n+2) { background-color: #f9f9f9; font-weight: bold; }
 .user_table tr:hover > td:nth-child(2) { text-indent: 10px; }
-.user_table tr:last-child td:last-child:hover > a { box-shadow: 0px 0px 8px 0px #3A709D; }
-.user_table tr:last-child td:last-child a { display: block; text-decoration: none; background-color: #3A709D; color: #F0F0F0; border-radius: 5px; margin: 2px; }
+.user_table tr:last-child td:last-child a { background-color: #3A709D; color: #F0F0F0; border: 2px solid #3A709D; border-radius: 5px; padding: 5px 0; }
+.user_table tr:last-child td:last-child:hover > a { color: #3A709D; background-color: #FFFFFF; }
 /* --- Table corners --- */
 .user_table tr:first-child th:first-child { border-top-left-radius: 10px; }
 .user_table tr:first-child th:last-child { border-top-right-radius: 10px; }
@@ -45,10 +45,11 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .form_wrapper form p { padding: 0px 15px; }
 .form_wrapper form p label { font-weight: bold; }
 .form_wrapper form p input[type=text] { width: 100%; padding: 10px 0px; display: inline-block; border: 1px solid #3A709D; border-radius: 5px; text-indent: 20px; }
-.form_wrapper form p input[type=submit] { background-color: #3A709D; color: #F0F0F0; padding: 10px 20px; border: none; border-radius: 5px; }
-.form_buttons input { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 700; cursor: pointer; }
-.form_buttons a { text-decoration: none; font-size: 10px; font-weight: 600; padding: 8px 15px; border: 1px solid #3A709D; border-radius: 5px; color: #3A709D; }
-.form_buttons input:hover, .form_buttons a:hover { box-shadow: 0px 0px 8px 0px #3A709D; }
+.form_wrapper form p input[type=submit] { background-color: #3A709D; color: #F0F0F0; border: none; padding: 8px 15px; border: 2px solid #3A709D; border-radius: 5px; }
+.form_buttons { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 700; cursor: pointer; }
+.form_buttons a { text-decoration: none; font-size: 10px; font-weight: 600; padding: 5px 10px; border: 2px solid #3A709D; border-radius: 5px; color: #3A709D; }
+.form_buttons input[type=submit]:hover { background-color: #FFFFFF; color: #3A709D; cursor: pointer; }
+.form_buttons a:hover { background-color: #929292; border: 2px solid #929292; color: #F0F0F0; }
 /* API Modal */
 .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(58, 112, 157, 0.4); }
 .modal-content { background-color: #F0F0F0; margin: 100px auto; padding: 20px; border: 1px solid #3A709D; border-radius: 10px; width: 60%; }
@@ -57,8 +58,9 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 /* Delete Modal */
 #delete_modal .modal-content { margin: 30% auto; }
 .confirm_delete { text-align: center; }
-.confirm_delete a { border: 1px solid #3A709D; border-radius: 5px; text-decoration: none; color: #3A709D; font-weight: bold; padding: 10px 15px; }
-.confirm_delete #del_btn { background-color: #d35557; border: 1px solid #d35557; color: #F0F0F0; }
+.confirm_delete a { border: 2px solid #3A709D; border-radius: 5px; text-decoration: none; color: #3A709D; font-weight: bold; padding: 10px 15px; }
+.confirm_delete #del_btn { background-color: #d35557; border: 2px solid #d35557; color: #F0F0F0; }
+.confirm_delete #del_btn:hover { background-color: #f0f0f0; color: #d35557; }
 /* Helper Classes */
 
 .text_center { text-align: center; }
