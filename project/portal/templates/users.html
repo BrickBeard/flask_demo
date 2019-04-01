@@ -24,12 +24,12 @@
             {% if data.users %}
                 {% for user in data.users %}
                 <tr>
-                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.id }}</a></td>
-                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.name.title() }}</a></td>
-                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.company }}</a></td>
-                    <td><a href="{{ url_for('update_user', id=user.id, _anchor='form_view') }}">{{ user.city }}</a></td>
+                    <td><a href="{{ url_for('portal.update_user', id=user.id, _anchor='form_view') }}">{{ user.id }}</a></td>
+                    <td><a href="{{ url_for('portal.update_user', id=user.id, _anchor='form_view') }}">{{ user.name.title() }}</a></td>
+                    <td><a href="{{ url_for('portal.update_user', id=user.id, _anchor='form_view') }}">{{ user.company }}</a></td>
+                    <td><a href="{{ url_for('portal.update_user', id=user.id, _anchor='form_view') }}">{{ user.city }}</a></td>
                     <td class=" del_icon">
-                        <a href="{{ url_for('delete_user', id=user.id) }}"><img src="https://img.icons8.com/office/30/000000/cancel.png"></a>
+                        <a id="delete_" onclick="delete_user({{ user.id }},'{{ user.name }}')" href="#"><img src="https://img.icons8.com/office/30/000000/cancel.png"></a>
                     </td>
                 </tr>  
                 {% endfor %} 
@@ -38,7 +38,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="text_center"><a href="{{ url_for('add_user', _anchor='form_view') }}">New User &#43;</a></td>
+                    <td class="text_center"><a href="{{ url_for('portal.add_user', _anchor='form_view') }}">New User &#43;</a></td>
                 </tr>
             </tbody>        
         </table>
@@ -48,7 +48,7 @@
             <div class="form_wrapper">
                 <h3 class="text_center">{% if request.path == '/users/update' %}Update User{% else %}Create New User{% endif %}</h3>
                 <hr width="65%", color="#3A709D">
-                <form action="{% if 'users/update' in request.path %}{{url_for('update_user', id=data.user.id) }}{% else %}/users/add{% endif %}" method="POST">
+                <form action="{% if 'users/update' in request.path %}{{url_for('portal.update_user', id=data.user.id) }}{% else %}/users/add{% endif %}" method="POST">
                     {{ data.form.csrf_token }}
                     <p>
                         {{ data.form.name.label }}
@@ -76,7 +76,7 @@
                     </p>
                     <p class="form_buttons">
                         <input type="submit" value="Submit">
-                        <a href="{{ url_for('users') }}">Cancel</a>
+                        <a href="{{ url_for('portal.users') }}">Cancel</a>
                     </p>
                 </form>
             </div> 
@@ -104,9 +104,24 @@
         <br>
         <br>
         <br>
+        <!-- Delete Modal -->
+        <div id="delete_modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="confirm_delete">
+                    <p>
+                        Are you sure you want to delete <strong id="show_name"></strong>?
+                    </p>
+                    <br>
+                    <a href="{{ url_for('portal.users') }}">Cancel</a>
+                    <a id='del_btn' href="#">DELETE</a>
+                </div>
+            </div>
+        </div>
         <div class="text_center">
             <a href="https://icons8.com/icon/21067/cancel" style="text-decoration: none; font-size: .3em;">Cancel icon by Icons8</a>
         </div>
+        <script src="{{ url_for('static', filename='js/modal.js') }}" type="text/javascript"></script>
         {% endif %}
     </div>
 {% endblock %}

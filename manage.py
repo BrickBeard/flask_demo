@@ -2,7 +2,8 @@ import os
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
-from project import app, db
+from project import app
+from project.models import db
 
 app.config.from_pyfile('dev.cfg')
 

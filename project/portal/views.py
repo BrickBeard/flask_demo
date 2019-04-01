@@ -1,28 +1,34 @@
-from flask import render_template, jsonify, request, redirect
-import json
-from project import app, db
-from project.models import User
+from flask import render_template, jsonify, request, redirect, Blueprint
+from project.models import User, db
 from project.forms import CreateUser, UpdateUser
 
+# Blueprint Declaration
+portal_bp = Blueprint(
+    'portal',
+    __name__,
+    template_folder='templates'
+)
 
-@app.route('/')
+# Portal Routes
+
+@portal_bp.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/users')
+@portal_bp.route('/users')
 def users():
     users = User.query.order_by(User.id)
     data = {"users": users}
     return render_template('users.html', data=data)
 
-@app.route('/api')
-def api():
-    users = User.query.order_by(User.id)
-    users = [user.serialize for user in users]
-    data = {"users": users, "json": json}
-    return render_template('api.html', data=data)
+# @portal_bp.route('/api')
+# def api():
+#     users = User.query.order_by(User.id)
+#     users = [user.serialize for user in users]
+#     data = {"users": users}
+#     return render_template('api.html', data=data)
 
-@app.route('/users/add', methods=['GET', 'POST'])
+@portal_bp.route('/users/add', methods=['GET', 'POST'])
 def add_user():
     form = CreateUser(request.form)
     if request.method == 'POST':
@@ -38,7 +44,7 @@ def add_user():
     data = {"form": form, "users": users}
     return render_template('users.html', data=data)
 
-@app.route('/users/update', methods=['GET', 'POST'])
+@portal_bp.route('/users/update', methods=['GET', 'POST'])
 def update_user():
     form = UpdateUser(request.form)
     id_ = request.args.get('id')
@@ -59,34 +65,9 @@ def update_user():
     data = {"form": form, "users": users, "user": user}
     return render_template('users.html', data=data)
 
-@app.route('/users/delete/<id>')
+@portal_bp.route('/users/delete/<id>')
 def delete_user(id):
     user = User.query.filter_by(id=id).first()
     db.session.delete(user)
     db.session.commit()
     return redirect('/users')
-
-
-# API Endpoints
-
-@app.route('/api/users')
-def all_users():
-    users = User.query.order_by(User.id)
-    user_list = [user.serialize for user in users]
-    return jsonify(user_list)
-
-@app.route('/api/users/<id>')
-def get_user(id):
-    user = User.query.filter_by(id=id).first()
-    if user is None:
-        return jsonify({"error": "user not found"})
-    return jsonify(user.serialize)
-
-@app.route('/api/companies')
-def get_companies():
-    users = User.query.all()
-    company_list = {u.company: {"users": []} for u in users}
-    for c in company_list.items():
-        c_users = User.query.filter_by(company=c[0])
-        c[1]['users'] = [user.serialize for user in c_users]
-    return jsonify([company_list])

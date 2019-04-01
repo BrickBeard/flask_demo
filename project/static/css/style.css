@@ -54,6 +54,11 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .modal-content { background-color: #F0F0F0; margin: 100px auto; padding: 20px; border: 1px solid #3A709D; border-radius: 10px; width: 60%; }
 .modal-content .close { color: #3A709D; float: right; font-size: 28px; font-weight: bold; }
 .modal-content .close:hover, .modal-content .close:focus { color: #3a3a3a; text-decoration: none; cursor: pointer; }
+/* Delete Modal */
+#delete_modal .modal-content { margin: 30% auto; }
+.confirm_delete { text-align: center; }
+.confirm_delete a { border: 1px solid #3A709D; border-radius: 5px; text-decoration: none; color: #3A709D; font-weight: bold; padding: 10px 15px; }
+.confirm_delete #del_btn { background-color: #d35557; border: 1px solid #d35557; color: #F0F0F0; }
 /* Helper Classes */
 
 .text_center { text-align: center; }
