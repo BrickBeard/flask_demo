@@ -1,5 +1,5 @@
 from flask import jsonify, render_template, Blueprint
-from project.models import User
+from project.models import User, Company
 
 # Blueprint Declaration
 api_bp = Blueprint(
@@ -19,25 +19,23 @@ def api():
     return render_template('api.html', data=data)
 
 
-# API Endpoints
+# V1 API Endpoints
 @api_bp.route('/users')
 def all_users():
     users = User.query.order_by(User.id)
     user_list = [user.serialize for user in users]
-    return jsonify(user_list)
+    return jsonify(user_list), 200
 
 @api_bp.route('/users/<id>')
 def get_user(id):
     user = User.query.filter_by(id=id).first()
     if user is None:
         return jsonify({"error": "user not found"})
-    return jsonify(user.serialize)
+    return jsonify(user.serialize), 200
 
 @api_bp.route('/companies')
 def get_companies():
-    users = User.query.all()
-    company_list = {u.company: {"users_count": 0} for u in users}
-    for c in company_list.items():
-        c_users = User.query.filter_by(company=c[0])
-        c[1]['users_count'] = c_users.count()
-    return jsonify([company_list])
+    company_list = Company.query.order_by(Company.id).all()
+    company_list = [company.serialize for company in company_list]    
+    print(f'company_list: {company_list}')
+    return  jsonify(company_list), 200

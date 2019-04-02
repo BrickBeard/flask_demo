@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title>OKC Python - Companies</title>
+{% endblock %}
+
+
+{% block content %}
+    <br>
+    <div class="content_center">
+        <br>
+        <table class="user_table">
+            <h2 class="text_center">Companies</h2>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>ADDRESS</th>
+                    <th>CITY</th>
+                    <th>REVENUE</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if data.companies %}
+                {% for company in data.companies %}
+                <tr>
+                    <td><a href="{{ url_for('portal.update_company', id=company.id, _anchor='form_view') }}">{{ company.id }}</a></td>
+                    <td class="c_name"><a href="{{ url_for('portal.update_company', id=company.id, _anchor='form_view') }}">{{ company.company_name }}</a></td>
+                    <td><a href="{{ url_for('portal.update_company', id=company.id, _anchor='form_view') }}">{{ company.company_address }}</a></td>
+                    <td><a href="{{ url_for('portal.update_company', id=company.id, _anchor='form_view') }}">{{ company.company_city }}</a></td>
+                    <td class="c_rev"><a href="{{ url_for('portal.update_company', id=company.id, _anchor='form_view') }}">{{ company.company_revenue }}</a></td>
+                    <td class="del_icon"></td>
+                </tr>  
+                {% endfor %} 
+            {% endif %}
+                <tr id="form_view">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" class="text_center"><a href="{{ url_for('portal.add_company', _anchor='form_view') }}">New Company &#43;</a></td>
+                </tr>
+            </tbody>        
+        </table>
+        {% if '/companies/' in request.path %}
+            {% if data.form %}
+            <br><br><br>
+            <div class="form_wrapper">
+                <h3 class="text_center">{% if request.path == '/companies/update' %}Update Company{% else %}Create New Company{% endif %}</h3>
+                <hr width="65%", color="#3A709D">
+                <form action="{% if 'companies/update' in request.path %}{{url_for('portal.update_company', id=data.company.id) }}{% else %}/companies/add{% endif %}" method="POST">
+                    {{ data.form.csrf_token }}
+                    <p>
+                        {{ data.form.company_name.label }}
+                        {% if data.company %}
+                            {{ data.form.company_name(placeholder="{}".format(data.company.company_name), autofocus=true) }}
+                        {% else %}
+                            {{ data.form.company_name(placeholder="", autofocus=true) }}
+                        {% endif %}
+                    </p>
+                    <p>
+                        {{ data.form.company_address.label }}
+                        {% if data.company %}
+                            {{ data.form.company_address(placeholder="{}".format(data.company.company_address)) }}
+                        {% else %}
+                            {{ data.form.company_address(placeholder="") }}
+                        {% endif %}
+                    </p>
+                    <p>
+                        {{ data.form.company_city.label }}
+                        {% if data.company %}
+                            {{ data.form.company_city(placeholder="{}".format(data.company.company_city)) }}
+                        {% else %}
+                            {{ data.form.company_city(placeholder="") }}
+                        {% endif %}
+                    </p>
+                    <p>
+                        {{ data.form.company_revenue.label }}
+                        {% if data.company %}
+                            {{ data.form.company_revenue(placeholder="{}".format(data.company.company_revenue)) }}
+                        {% else %}
+                            {{ data.form.company_revenue(placeholder="") }}
+                        {% endif %}
+                    </p>
+                    <p class="form_buttons">
+                        <input type="submit" value="Submit">
+                        <a href="{{ url_for('portal.companies') }}">Cancel</a>
+                    </p>
+                </form>
+            </div> 
+            {% endif %}
+        {% endif %}
+        <br><br>
+        {% if data.users %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Delete Modal -->
+        <div id="delete_modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="confirm_delete">
+                    <p>
+                        Are you sure you want to delete <strong id="show_name"></strong>?
+                    </p>
+                    <br>
+                    <a href="{{ url_for('portal.users') }}">Cancel</a>
+                    <a id='del_btn' href="#">DELETE</a>
+                </div>
+            </div>
+        </div>
+        <div class="text_center">
+            <a href="https://icons8.com/icon/21067/cancel" style="text-decoration: none; font-size: .3em;">Cancel icon by Icons8</a>
+        </div>
+        <script src="{{ url_for('static', filename='js/modal.js') }}" type="text/javascript"></script>
+        {% endif %}
+    </div>
+{% endblock %}

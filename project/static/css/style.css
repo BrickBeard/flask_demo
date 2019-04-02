@@ -15,6 +15,8 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .user_table td, .user_table th { border: 1px solid #3A709D; padding: 8px; }
 .user_table td:first-child, .user_table th:first-child { width: 50px; }
 .user_table td:nth-child(2), .user_table th:nth-child(2) { min-width: 150px; }
+.user_table td.c_name { min-width: 200px; }
+.user_table td.c_rev { text-align: right; }
 .user_table tbody tr td a { display: block; text-decoration: none; color: #3A709D; }
 .user_table tbody tr td.del_icon { border: none; width: 10px; }
 .user_table tbody tr td.del_icon a { display: block; }
@@ -22,6 +24,9 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .user_table tr:hover > td:nth-child(2) { text-indent: 10px; }
 .user_table tr:last-child td:last-child a { background-color: #3A709D; color: #F0F0F0; border: 2px solid #3A709D; border-radius: 5px; padding: 5px 0; }
 .user_table tr:last-child td:last-child:hover > a { color: #3A709D; background-color: #FFFFFF; }
+.user_table tr:last-child td:nth-child(3) a { border: 2px solid #3A709D; border-radius: 5px; padding: 5px 0; }
+.user_table tr:last-child td:nth-child(3):hover > a { background-color: #f9f9f9; font-weight: bold; }
+
 /* --- Table corners --- */
 .user_table tr:first-child th:first-child { border-top-left-radius: 10px; }
 .user_table tr:first-child th:last-child { border-top-right-radius: 10px; }
@@ -45,6 +50,7 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .form_wrapper form p { padding: 0px 15px; }
 .form_wrapper form p label { font-weight: bold; }
 .form_wrapper form p input[type=text] { width: 100%; padding: 10px 0px; display: inline-block; border: 1px solid #3A709D; border-radius: 5px; text-indent: 20px; }
+.form_wrapper form p select { width: 100%; padding: 10px 0px; display: inline-block; border: 1px solid #3A709D; border-radius: 5px; text-indent: 20px; }
 .form_wrapper form p input[type=submit] { background-color: #3A709D; color: #F0F0F0; border: none; padding: 8px 15px; border: 2px solid #3A709D; border-radius: 5px; }
 .form_buttons { font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 700; cursor: pointer; }
 .form_buttons a { text-decoration: none; font-size: 10px; font-weight: 600; padding: 5px 10px; border: 2px solid #3A709D; border-radius: 5px; color: #3A709D; }
