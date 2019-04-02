@@ -9,17 +9,17 @@ api_bp = Blueprint(
     static_folder='static'
 )
 
-# API Page
 
-@api_bp.route('/')
+# API Page
+@api_bp.route('')
 def api():
     users = User.query.order_by(User.id)
     users = [user.serialize for user in users]
     data = {"users": users}
     return render_template('api.html', data=data)
 
-# API Endpoints
 
+# API Endpoints
 @api_bp.route('/users')
 def all_users():
     users = User.query.order_by(User.id)

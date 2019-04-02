@@ -25,7 +25,7 @@
             <tr>
                 <td>User</td>
                 <td>www.brickbeard.okcpy<strong>{{ url_for('api.get_user', id=data.users[0].id) }}</strong></td>
-                <td><a id="user_" href="#">Send Request</a></td>
+                <td><a id="user_" id_="{{ data.users[0].id }}" href="#">Send Request</a></td>
             </tr>
             <tr>
                 <td>Companies</td>

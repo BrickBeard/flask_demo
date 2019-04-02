@@ -10,7 +10,6 @@ portal_bp = Blueprint(
 )
 
 # Portal Routes
-
 @portal_bp.route('/')
 def index():
     return render_template('index.html')
@@ -20,13 +19,6 @@ def users():
     users = User.query.order_by(User.id)
     data = {"users": users}
     return render_template('users.html', data=data)
-
-# @portal_bp.route('/api')
-# def api():
-#     users = User.query.order_by(User.id)
-#     users = [user.serialize for user in users]
-#     data = {"users": users}
-#     return render_template('api.html', data=data)
 
 @portal_bp.route('/users/add', methods=['GET', 'POST'])
 def add_user():

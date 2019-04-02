@@ -22,7 +22,7 @@
         <ul class="nav text_center">
             <li><a class="{% if request.path == '/' %}active{% endif %}" href="/">Home</a></li>
             <li><a class="{% if 'users' in request.path %}active{% endif %}" href="/users">Users</a></li>
-            <li><a class="{% if request.path == '/api/' %}active{% endif %}" href="/api/">API</a></li>
+            <li><a class="{% if request.path == '/api' %}active{% endif %}" href="/api">API</a></li>
         </ul>
 {% endblock %}
     </div>

@@ -17,7 +17,8 @@ btn_users.onclick = () => {
 }
 
 btn_user.onclick = function() {
-    fetch('http://127.0.0.1:5000/api/users/2')
+    var id_ = btn_user.getAttribute('id_')
+    fetch('http://127.0.0.1:5000/api/users/'+id_)
     .then(response => response.json())
     .then(jsonRes => {
         const data = jsonRes;
