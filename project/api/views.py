@@ -36,8 +36,8 @@ def get_user(id):
 @api_bp.route('/companies')
 def get_companies():
     users = User.query.all()
-    company_list = {u.company: {"users": []} for u in users}
+    company_list = {u.company: {"users_count": 0} for u in users}
     for c in company_list.items():
         c_users = User.query.filter_by(company=c[0])
-        c[1]['users'] = [user.serialize for user in c_users]
+        c[1]['users_count'] = c_users.count()
     return jsonify([company_list])
