@@ -83,19 +83,22 @@ def add_company():
     form = CreateCompany(request.form)
     companies = Company.query.order_by(Company.id).all()
     if request.method == 'POST':
+        print(f"Form Data (Pre Validate): {form.data}")
         if form.validate_on_submit():
+            print(f"Form Data (Post Validate): {form.data}")
             try:
                 new_company = Company(form.company_name.data, form.company_city.data)
-                if form.company_address:
-                    setattr(new_company, 'company_address', form.company_address)
-                if form.company_revenue:
-                    setattr(new_company, 'company_revenue', form.company_revenue)
+                if not form.company_address.data == '':
+                    setattr(new_company, 'company_address', form.company_address.data)
+                if not form.company_revenue.data == '':
+                    setattr(new_company, 'company_revenue', form.company_revenue.data)
                 db.session.add(new_company)
                 db.session.commit()
-                return redirect('/users')
+                return redirect('/companies')
             except ValueError: 
                 db.session.rollback()    
     for company in companies:
+        # This loop formats revenue column with thousand separators
         company.company_revenue = f"{company.company_revenue:,.2f}"
     data = {"form": form, "companies": companies}
     return render_template('companies.html', data=data)
@@ -106,22 +109,23 @@ def update_company():
     id_ = request.args.get('id')
     company = Company.query.filter_by(id=id_).first()
     if request.method == 'POST':
-        print(f"Form Data (Pre Validate): {form.data}")
+        print(form.company_revenue.data)
         if form.validate_on_submit():
-            print(f"Form Data (Post Validate): {form.data}")
             try:    
                 for key, value in form.data.items():
                     if not key == 'csrf_token':
                         if not value == "":
                             print(f"Key: {key}, Value: {value}")
                             setattr(company, key, value)
-                            pass
                 db.session.commit()
                 return redirect('/companies')
             except ValueError: 
                 db.session.rollback()
     companies = Company.query.order_by(Company.id).all()
-    for company in companies:
-        company.company_revenue = f"{company.company_revenue:,.2f}"
+    from copy import copy       # 'copy' is used so the for loop won't
+    company = copy(company)     # override the company variable's value
+    for c in companies:
+        # This loop formats revenue column with thousand separators
+        c.company_revenue = f"{c.company_revenue:,.2f}"
     data = {"form": form, "companies": companies, "company": company}
     return render_template('companies.html', data=data)

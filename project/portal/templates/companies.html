@@ -77,7 +77,7 @@
                     <p>
                         {{ data.form.company_revenue.label }}
                         {% if data.company %}
-                            {{ data.form.company_revenue(placeholder="{}".format(data.company.company_revenue)) }}
+                            {{ data.form.company_revenue(placeholder="{}".format(data.company.company_revenue), value=data.company.company_revenue) }}
                         {% else %}
                             {{ data.form.company_revenue(placeholder="") }}
                         {% endif %}
