@@ -21,12 +21,11 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .user_table tbody tr td.del_icon { border: none; width: 10px; }
 .user_table tbody tr td.del_icon a { display: block; }
 .user_table tr:nth-last-child(n+2):hover > td:nth-last-child(n+2) { background-color: #f9f9f9; font-weight: bold; }
-.user_table tr:hover > td:nth-child(2) { text-indent: 10px; }
+/* .user_table tr:hover > td:nth-child(2) { text-indent: 10px; } */
 .user_table tr:last-child td:last-child a { background-color: #3A709D; color: #F0F0F0; border: 2px solid #3A709D; border-radius: 5px; padding: 5px 0; }
 .user_table tr:last-child td:last-child:hover > a { color: #3A709D; background-color: #FFFFFF; }
 .user_table tr:last-child td:nth-child(3) a { border: 2px solid #3A709D; border-radius: 5px; padding: 5px 0; }
 .user_table tr:last-child td:nth-child(3):hover > a { background-color: #f9f9f9; font-weight: bold; }
-
 /* --- Table corners --- */
 .user_table tr:first-child th:first-child { border-top-left-radius: 10px; }
 .user_table tr:first-child th:last-child { border-top-right-radius: 10px; }
@@ -62,7 +61,7 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .modal-content .close { color: #3A709D; float: right; font-size: 28px; font-weight: bold; }
 .modal-content .close:hover, .modal-content .close:focus { color: #3a3a3a; text-decoration: none; cursor: pointer; }
 /* Delete Modal */
-#delete_modal .modal-content { margin: 30% auto; }
+#delete_modal .modal-content { margin: 20% auto; }
 .confirm_delete { text-align: center; }
 .confirm_delete a { border: 2px solid #3A709D; border-radius: 5px; text-decoration: none; color: #3A709D; font-weight: bold; padding: 10px 15px; }
 .confirm_delete #del_btn { background-color: #d35557; border: 2px solid #d35557; color: #F0F0F0; }
