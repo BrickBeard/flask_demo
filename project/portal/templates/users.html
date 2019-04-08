@@ -37,7 +37,7 @@
                 <tr id="form_view">
                     <td></td>
                     <td></td>
-                    <td class="text_center"><a href="{{ url_for('portal.companies', _anchor='form_view') }}">Companies</a></td>
+                    <td class="text_center"><a href="{{ url_for('portal.companies') }}">Companies</a></td>
                     <td class="text_center"><a href="{{ url_for('portal.add_user', _anchor='form_view') }}">New User &#43;</a></td>
                 </tr>
             </tbody>        
@@ -69,7 +69,7 @@
                     <p class="form_buttons">
                         <input type="submit" value="Submit">
                         <a href="{{ url_for('portal.users') }}">Cancel</a>
-                        <a href="{{ url_for('portal.add_company') }}">New Company</a>
+                        <a class="right" href="{{ url_for('portal.add_company') }}">New Company</a>
                     </p>
                 </form>
             </div> 
