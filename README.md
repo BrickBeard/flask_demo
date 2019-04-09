@@ -23,7 +23,10 @@ This app was built to try and isolate specific stages in the development stream.
 
 ---
 
-## Instructions
+## Instructions    -    *master* and *04-blueprints* branches
+> For branches  `01-basics` and `02-templates` all you need is the virtualenv and ```
+                                                                                  pip install flask
+                                                                                  ```
 
 First clone the repo and initialize a virtualenv:
 ```
@@ -50,7 +53,7 @@ Next, make sure you have **[Postgres](https://postgresapp.com/)** installed and 
       postgres=#   GRANT CONNECT ON DATABASE test TO test; 
       ```
 
-## Create Tables and Run App!
+### Create Tables and Run App!
 
 ```
 flask db migrate
@@ -59,14 +62,14 @@ flask db upgrade
 flask run
 ```
 > ### Before navigating to the API page:
-> - Create a company first (`users>companies>New Company +`) 
-> - add a user (`users>New User +`)  
+> - Create a company first (users > companies > [![New Company](https://img.shields.io/badge/New_Company_+-blue.svg?style=round-square)]()) 
+> - add a user (users > [![New User](https://img.shields.io/badge/New_User_+-blue.svg?style=round-square)]())
 > 
 > *...The API page runs a query to get the first user id from the database before rendering the html.*
   
-  > **Don't Forget to uncomment the files in .gitignore**
+  
+<h2 align="center">**Don't Forget to uncomment the files in .gitignore!!!**</h2>
 
----
 
 ### Questions or Comments
 
