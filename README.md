@@ -23,10 +23,9 @@ This app was built to try and isolate specific stages in the development stream.
 
 ---
 
-## Instructions    -    *master* and *04-blueprints* branches
-> For branches  `01-basics` and `02-templates` all you need is the virtualenv and ```
-                                                                                  pip install flask
-                                                                                  ```
+## Instructions - Branches: *`master`*  *`04-blueprints`*
+> - For branches  `01-basics` and `02-templates` all you need is the virtualenv and **`pip install flask`**
+> - For branch `03-api` you will either need a new database called **`okc_python_demo`** or change the ***SQLALCHEMY_DATABASE_URI*** in the instance/dev.cfg file.
 
 First clone the repo and initialize a virtualenv:
 ```
