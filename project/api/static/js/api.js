@@ -6,7 +6,7 @@ var display = document.getElementById('display')
 var close_ = document.getElementsByClassName('close')[0];
 
 btn_users.onclick = () => {
-    fetch('http://127.0.0.1:5000/api/users')
+    fetch('http://127.0.0.1:5000/api/v1/users')
     .then(response => response.json())
     .then(jsonRes => {
         const data = jsonRes;
@@ -18,7 +18,7 @@ btn_users.onclick = () => {
 
 btn_user.onclick = function() {
     var id_ = btn_user.getAttribute('id_')
-    fetch('http://127.0.0.1:5000/api/users/'+id_)
+    fetch('http://127.0.0.1:5000/api/v1/user?id='+id_)
     .then(response => response.json())
     .then(jsonRes => {
         const data = jsonRes;
@@ -29,7 +29,7 @@ btn_user.onclick = function() {
 }
 
 btn_companies.onclick = function() {
-    fetch('http://127.0.0.1:5000/api/companies')
+    fetch('http://127.0.0.1:5000/api/v2/companies')
     .then(response => response.json())
     .then(jsonRes => {
         const data = jsonRes;

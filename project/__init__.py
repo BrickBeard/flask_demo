@@ -12,9 +12,13 @@ def create_app():
 
     from .portal.views import portal_bp
     from .api.views import api_bp
+    from .api.v1.routes import v1
+    from .api.v2.routes import v2
 
     app.register_blueprint(portal_bp)
     app.register_blueprint(api_bp, url_prefix='/api')
+    app.register_blueprint(v1, url_prefix='/api/v1')
+    app.register_blueprint(v2, url_prefix='/api/v2')
 
     return app
 

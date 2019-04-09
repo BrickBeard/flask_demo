@@ -41,7 +41,7 @@ body { background-color: #FFFFFF; font-family: 'Courier New', Courier, monospace
 .api_table tbody tr td:nth-child(2) { border: 1px solid #3A709D; border-radius: 5px; text-align: center; padding: 10px 20px; }
 .api_table tbody tr td:last-child { text-align: center;  width: 230px; }
 .api_table tbody tr td:last-child a { text-decoration: none; background-color: #FFD43A; border: 1px solid #FFD43A; color: #3A709D; font-weight: bold; padding: 10px 20px; border-radius: 5px; text-indent: 20px; }
-.api_table tbody tr:hover > td:nth-last-child(n+2) { background-color: #f6f6f6; border-radius: 5px; }
+.api_table tbody tr :not(.version):hover > td:nth-last-child(n+2) { background-color: #f6f6f6; border-radius: 5px; }
 .api_table tbody tr td a:hover { background-color: #f9f9f9; border: 1px solid #3A709D; }
 /* Forms */
 .form_wrapper { width: 40%; margin-left: auto; margin-right: auto; border-radius: 10px; border: 5px dashed #3A709D; box-shadow: 10px 10px 20px rgba(58, 112, 157, 0.5); }
