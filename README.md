@@ -44,18 +44,30 @@ Next, make sure you have **[Postgres](https://postgresapp.com/)** installed and 
       Enter password for new role:
       Enter it again:
       ```
--  grant user priveleges to that database
-   -  ``` 
-      GRANT CONNECT ON DATABASE test TO test; 
+-  grant user privileges to that database
+   -  ```
+      psql
+      postgres=#   GRANT CONNECT ON DATABASE test TO test; 
       ```
 
 ## Create Tables and Run App!
 
 ```
-flask db init
 flask db migrate
 flask db upgrade
 
 flask run
 ```
-... and cross your fingers!
+> ### Before navigating to the API page:
+> - Create a company first (`users>companies>New Company +`) 
+> - add a user (`users>New User +`)  
+> 
+> *...The API page runs a query to get the first user id from the database before rendering the html.*
+  
+  > **Don't Forget to uncomment the files in .gitignore**
+
+---
+
+### Questions or Comments
+
+Please leave feedback on here or reach out to me on the Techlahoma Slack **@brickbeard**
