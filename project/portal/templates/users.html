@@ -59,7 +59,7 @@
                     <p>
                         {{ data.form.company_id.label }}
                         {% if data.user %}
-                            {{ data.form.company_id(choices=data.companies, placeholder="{}".format(data.user.company_id)) }}
+                            {{ data.form.company_id(choices=data.companies, placeholder="{}".format(data.user.company.company_name)) }}
                         {% else %}
                             {{ data.form.company_id(placeholder="") }}
                         {% endif %}
