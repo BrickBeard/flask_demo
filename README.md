@@ -23,33 +23,33 @@ This app was built to try and isolate specific stages in the development stream.
 
 ---
 
-## Instructions - Branches: *`master`*  *`04-blueprints`*
+## Instructions - *Branches:* *`master`*  *`04-blueprints`*
 > - For branches  `01-basics` and `02-templates` all you need is the virtualenv and **`pip install flask`**
-> - For branch `03-api` you will either need a new database called **`okc_python_demo`** or change the ***SQLALCHEMY_DATABASE_URI*** in the instance/dev.cfg file.
+> - For branch `03-api` you will either need a new database called **`okc_python_demo`** (to utilize all of the sections) or just change the ***SQLALCHEMY_DATABASE_URI*** in the instance/dev.cfg file to direct to the **`test`** database described below.
 
 First clone the repo and initialize a virtualenv:
 ```
-git clone https://github.com/BrickBeard/flask_demo.git
-cd flask_demo
-virtualenv env
-source env/bin/activate
-(env) pip install -r requirements.txt
+$ git clone https://github.com/BrickBeard/flask_demo.git
+$ cd flask_demo
+$ virtualenv env
+$ source env/bin/activate
+(env)$ pip install -r requirements.txt
 ```
 Next, make sure you have **[Postgres](https://postgresapp.com/)** installed and then:
 -  create a database called ***test***
    -  ```
-      createdb test
+      $ createdb test
       ```
 -  create a postgres user ***test*** with password ***test***
    -  ```
-      createuser test --pwprompt
-      Enter password for new role:
-      Enter it again:
+      $ createuser test --pwprompt
+      $ Enter password for new role:
+      $ Enter it again:
       ```
 -  grant user privileges to that database
    -  ```
-      psql
-      postgres=#   GRANT CONNECT ON DATABASE test TO test; 
+      $ psql
+      postgres=#   GRANT ALL PRIVILEGES ON DATABASE test TO test; 
       ```
 
 ### Create Tables and Run App!
