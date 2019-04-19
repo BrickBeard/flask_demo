@@ -2,7 +2,7 @@
 
 [![built-with-Flask](https://img.shields.io/badge/Built%20With-Flask%201.0.2-brightgreen.svg?style=flat-square)](http://flask.pocoo.org/) [![Database-Postgres](https://img.shields.io/badge/Database-Postgres-blue.svg?style=flat-square)](https://postgresapp.com/)  [![Python-Version](https://img.shields.io/badge/Python-3.7-orange.svg?style=flat-square)](https://www.python.org/downloads/) 
 
-Demo project showing a few stages of development of a basic Flask application.  Each branch presents another step in the progression of the app:
+Demo project showing a few stages of development of a basic Flask application.  This is the repo for the **Flask: Introduction & Project Structure** talk I gave April 10, 2019 (You can watch it [Here](https://www.youtube.com/channel/UCnLf0pfqIpSfKuPZ0e9iiNQ)).  Each branch presents another step in the progression of the app:
 
 > |Branches| |
 > |---|---|
