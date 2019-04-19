@@ -61,8 +61,8 @@ flask db upgrade
 flask run
 ```
 > ### Before navigating to the API page:
-> - Create a company first (users > companies > [![New Company](https://img.shields.io/badge/New_Company_+-blue.svg?style=round-square)]()) 
-> - add a user (users > [![New User](https://img.shields.io/badge/New_User_+-blue.svg?style=round-square)]())
+> - Create a company first (users > companies > [![New Company](https://img.shields.io/badge/New_Company_+-blue.svg?style=round-square)](#)) 
+> - add a user (users > [![New User](https://img.shields.io/badge/New_User_+-blue.svg?style=round-square)](#))
 > 
 > *...The API page runs a query to get the first user id from the database before rendering the html.*
   
