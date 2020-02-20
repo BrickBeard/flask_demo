@@ -6,6 +6,7 @@ __pycache__/
 venv/
 env/
 env_/
+.python-version
 
 # Configuration files
 # instance/                 Un-comment these in your environment
