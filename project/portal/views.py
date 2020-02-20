@@ -12,6 +12,16 @@ portal_bp = Blueprint(
 # Portal Routes
 @portal_bp.route('/')
 def index():
+    # --- Only used to insert data into an empty database
+    companies = Company.query.all()
+    if not companies:
+        initial_company = Company('Flask Demo Company', 'Oklahoma City, OK')
+        db.session.add(initial_company)
+        db.session.commit()
+        initial_user = User('Flask Demo User', initial_company.id)
+        db.session.add(initial_user)
+        db.session.commit()
+    # --- End of initial data block - Delete as needed
     return render_template('index.html')
 
 # --- Users
@@ -74,7 +84,8 @@ def delete_user(id):
 def companies():
     companies = Company.query.order_by(Company.id).all()
     for company in companies:
-        company.company_revenue = f"{company.company_revenue:,.2f}"
+        company.company_revenue = f"{company.company_revenue:,.2f}" if company.company_revenue else ''
+        company.company_address = company.company_address if company.company_address else ''
     data = {"companies": companies}
     return render_template('companies.html', data=data)
 

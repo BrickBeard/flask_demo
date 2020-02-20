@@ -12,6 +12,7 @@ env_/
 # instance/                 Un-comment these in your environment
 # .env                      Un-comment these in your environment
 # migrations/               Un-comment these in your environment
+migrations/versions/*
 
 # IDE / Text Editors
 .vscode/

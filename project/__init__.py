@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from .models import db
+from .models import db, Company, User
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
